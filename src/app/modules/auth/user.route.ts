@@ -23,16 +23,16 @@ router.get('/me', authenticateToken, (req, res, next) => {
   sendResponse(res, {
     success: true,
     statusCode: 201,
-    message: 'User Logged in successfully',
+    message: 'User Profile fetched successfully',
     data: user,
   });
 });
-router.get('/logout', authenticateToken, (req, res, next) => {
+router.post('/logout', authenticateToken, (req, res, next) => {
   res.clearCookie('accessToken');
   sendResponse(res, {
     success: true,
     statusCode: 201,
-    message: 'User Logged in successfully',
+    message: 'User Logged out successfully',
     data: null,
   });
 });

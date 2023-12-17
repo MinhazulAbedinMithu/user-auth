@@ -6,7 +6,8 @@ import UserModel from '../modules/auth/user.model';
 import { Request } from 'express';
 
 const authToken = catchAsync(async (req, res, next) => {
-  const token = req.cookies['accessToken'];
+  // const token = req.cookies['accessToken'];
+  const token = req.headers['authorization']?.split(' ')[1];
 
   if (!token) {
     throw new AppError(400, 'You are not authorized!');
